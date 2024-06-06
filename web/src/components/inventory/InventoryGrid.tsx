@@ -35,7 +35,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
               </p>
             )}
           </div>
-          <WeightBar percent={inventory.maxWeight ? (weight / inventory.maxWeight) * 100 : 0} />
+          
         </div>
         <div className="inventory-grid-container" ref={containerRef}>
           <>
@@ -51,6 +51,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
             ))}
           </>
         </div>
+        <WeightBar percent={inventory.maxWeight ? (weight / inventory.maxWeight) * 100 : 0} />
       </div>
     </>
   );

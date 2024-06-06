@@ -117,12 +117,22 @@ button:active {
 
 .inventory-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   height: 100%;
+  gap: 15px;
+}
 
-  gap: 20px;
+.inventory-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.inventory-globalcontrol{
+  display: flex;
+  justify-content: center;
 }
 
 .inventory-control {
@@ -130,7 +140,7 @@ button:active {
 
   .inventory-control-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -157,7 +167,7 @@ button:active {
     color: #fff;
     background-color: $secondaryColor;
     transition: 200ms;
-    padding: 12px 8px;
+    padding: 12px 30px;
     border-radius: 2.5%;
     border: none;
     text-transform: uppercase;
