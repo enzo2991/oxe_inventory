@@ -126,12 +126,24 @@ button:active {
 .inventory-button-clothes-hat{
   margin-bottom: 10px;
   width:100px;
-  align-self:center
+  align-self:center;
+  margin-bottom: 80px;
+  height: 500px;
+}
+
+.inventory-button-clothes-button-shoes{
+  align-self: flex-end;
 }
 
 .inventory-button-clothes-categorie{
   display:flex;
   justify-content: space-between;
+  flex-direction: row;
+}
+
+.inventory-button-clothes-categorie-bottom{
+  height: 300px;
+  align-items: center;
 }
 
 .inventory-button-clothes-button {
@@ -141,6 +153,7 @@ button:active {
     border-radius: 2.5%;
     border: none;
     width: 100px;
+    height: 40px;
     &:hover {
       background-color: $secondaryColorDark;
     }

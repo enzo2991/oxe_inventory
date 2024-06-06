@@ -19,11 +19,11 @@ const PedInventory: React.FC = () => {
                     🦺
                 </button>
             </div>
-            <div className='inventory-button-clothes-categorie'>
-                <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+            <div className='inventory-button-clothes-categorie inventory-button-clothes-categorie-bottom'>
+                <button className="inventory-button-clothes-button " onClick={() => fetchNui('exit')}>
                     👖
                 </button>
-                <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                <button className="inventory-button-clothes-button inventory-button-clothes-button-shoes" onClick={() => fetchNui('exit')}>
                     👟
                 </button>
             </div>
