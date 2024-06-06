@@ -121,13 +121,14 @@ button:active {
   justify-content: center;
   // align-items: center;
   height: 100%;
-  gap: 15px;
+  gap: 100px;
 }
 
 .inventory-grid {
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .inventory-globalcontrol{
@@ -167,7 +168,7 @@ button:active {
     color: #fff;
     background-color: $secondaryColor;
     transition: 200ms;
-    padding: 12px 30px;
+    padding: 12px 40px;
     border-radius: 2.5%;
     border: none;
     text-transform: uppercase;
