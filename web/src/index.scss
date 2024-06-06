@@ -115,6 +115,37 @@ button:active {
   image-rendering: -webkit-optimize-contrast;
 }
 
+.inventory-button-clothes {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:500px;
+  gap:50px;
+}
+
+.inventory-button-clothes-hat{
+  margin-bottom: 10px;
+  width:100px;
+  align-self:center
+}
+
+.inventory-button-clothes-categorie{
+  display:flex;
+  justify-content: space-between;
+}
+
+.inventory-button-clothes-button {
+    background-color: $secondaryColor;
+    transition: 200ms;
+    padding: 12px 40px;
+    border-radius: 2.5%;
+    border: none;
+    width: 100px;
+    &:hover {
+      background-color: $secondaryColorDark;
+    }
+  }
+
 .inventory-wrapper {
   display: flex;
   flex-direction: column;
