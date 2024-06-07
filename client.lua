@@ -1768,8 +1768,13 @@ RegisterNUICallback('exit', function(_, cb)
 end)
 
 RegisterNUICallback('selectClothing',function (data,cb)
+	cb(false)
 	SelectClothing(data)
-	cb(1)
+end)
+
+RegisterNUICallback('useRename',function (data, cb)
+	cb(false)
+	print(data.slot, data.count)
 end)
 
 lib.callback.register('ox_inventory:startCrafting', function(id, recipe)

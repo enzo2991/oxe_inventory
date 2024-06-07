@@ -1,8 +1,10 @@
-//import toast from "react-hot-toast";
+import { store } from '../store';
 import { fetchNui } from '../utils/fetchNui';
 import { Slot } from '../typings';
 
 export const onRename = (item: Slot) => {
-  //toast.success(`Use ${item.name}`);
-  fetchNui('useRename', item.slot);
+  const {
+    inventory: { itemAmount },
+  } = store.getState();
+  fetchNui('useRename', {slot: item.slot, count: itemAmount});
 };

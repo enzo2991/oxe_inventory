@@ -21,30 +21,30 @@ const PedInventory: React.FC = () => {
             </div>
             <div className='inventory-button-clothes-categorie'>
                 <div className='inventory-button-clothes-categorie-col'>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         👕
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         💎
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         🧤
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                     👖
                     </button>
                 </div>
                 <div className='inventory-button-clothes-categorie-col'>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         🦺
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         ⌚
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         🎒
                     </button>
-                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('selectClothing')}>
                         👟
                     </button>
                 </div>
