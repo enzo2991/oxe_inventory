@@ -275,6 +275,32 @@ lib.callback.register('ox_inventory:getInventory', function(source, id)
 	}
 end)
 
+RegisterNetEvent("ox_inventory:renameItem",function(slot, count, input)
+	local inventory = Inventory(source)
+
+    if not inventory then return end
+
+	local item = inventory.items[slot]
+
+    if not item or item.slot ~= slot then
+        ---@todo
+        DropPlayer(inventory.id, 'sussy')
+
+        return
+    end
+	
+	if count == 0 then
+		count = item.count
+	end
+
+	local ignoreList = Config.ignoreList
+	
+	if ignoreList[item.name] then return end
+
+	Inventory.RemoveItem(inventory.id, item.name, count, nil, slot)
+	Inventory.AddItem(inventory, item.name, count, {label = input}, slot)
+end)
+
 RegisterNetEvent('ox_inventory:usedItemInternal', function(slot)
     local inventory = Inventory(source)
 

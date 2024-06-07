@@ -1,5 +1,12 @@
 # ox_inventory
 
+## Fork update
+
+- add ped to display in inventory
+- added button for removing or putting back clothes
+
+## explanation
+
 A complete inventory system for FiveM, implementing items, weapons, shops, and more without any strict framework dependency.
 
 ![](https://img.shields.io/github/downloads/overextended/ox_inventory/total?logo=github)

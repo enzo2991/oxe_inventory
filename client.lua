@@ -236,6 +236,32 @@ local function PlayAnim(item)
     Wait(1500)
 end
 
+local function GetPedGender(playerPed)
+    local male = GetHashKey("mp_m_freemode_01")
+    local female = GetHashKey("mp_f_freemode_01")
+	local gender = GetEntityModel(playerPed)
+
+    if gender == male then
+        return 'male'
+    elseif gender == female then
+        return 'female'
+    end
+end
+
+local function DeletePedScreen()
+    DeleteEntity(PlayerPedPreview)
+    SetFrontendActive(false)
+end
+
+local function RefreshPedScreen()
+    if DoesEntityExist(PlayerPedPreview) then
+        DeletePedScreen()
+        Wait(500)
+        if plyState.invOpen then
+            createPedScreen(false)
+        end
+    end
+end
 
 local function selectClothing(data)
     local playerPed = PlayerPedId()
@@ -419,21 +445,7 @@ local function selectClothing(data)
             PreviousTexture[item] = nil
         end
     end
-end
-
-local function DeletePedScreen()
-    DeleteEntity(PlayerPedPreview)
-    SetFrontendActive(false)
-end
-
-local function RefreshPedScreen()
-    if DoesEntityExist(PlayerPedPreview) then
-        DeletePedScreen()
-        Wait(500)
-        if plyState.invOpen then
-            createPedScreen(false)
-        end
-    end
+	RefreshPedScreen()
 end
 
 local CraftingBenches = require 'modules.crafting.client'
@@ -2057,7 +2069,13 @@ end)
 
 RegisterNUICallback('useRename',function (data, cb)
 	cb(false)
-	print(data.slot, data.count)
+	local input = lib.inputDialog(locale('ui_rename'),{
+		{type = 'input', label = 'Nom de l\'item', required = true}
+	})
+	
+	if not input and not input[1] then return end
+
+	TriggerServerEvent("ox_inventory:renameItem", data.slot, data.count, input[1])
 end)
 
 lib.callback.register('ox_inventory:startCrafting', function(id, recipe)
