@@ -5,6 +5,9 @@
 - add ped to display in inventory
 - added button for removing or putting back clothes
 
+![](https://github.com/enzo2991/ox_inventory_ped/assets/19875371/16097413-470a-40ec-af20-24cb04daab19)
+
+
 ## explanation
 
 A complete inventory system for FiveM, implementing items, weapons, shops, and more without any strict framework dependency.
