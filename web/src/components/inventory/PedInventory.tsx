@@ -8,24 +8,46 @@ const PedInventory: React.FC = () => {
     return (
         <>
         <div className='inventory-button-clothes'>
-            <button className="inventory-button-clothes-button inventory-button-clothes-hat" onClick={() => fetchNui('exit')}>
-                🎩
-            </button>
-            <div className='inventory-button-clothes-categorie'>
-                <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
-                    👕
+            <div className='inventory-button-clothes-top'>
+                <button className="inventory-button-clothes-button inventory-button-clothes-hat" onClick={() => fetchNui('exit')}>
+                    👓
                 </button>
-                <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
-                    🦺
+                <button className="inventory-button-clothes-button inventory-button-clothes-hat" onClick={() => fetchNui('exit')}>
+                    🎩
+                </button>
+                <button className="inventory-button-clothes-button inventory-button-clothes-hat" onClick={() => fetchNui('exit')}>
+                    🎭
                 </button>
             </div>
-            <div className='inventory-button-clothes-categorie inventory-button-clothes-categorie-bottom'>
-                <button className="inventory-button-clothes-button " onClick={() => fetchNui('exit')}>
+            <div className='inventory-button-clothes-categorie'>
+                <div className='inventory-button-clothes-categorie-col'>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        👕
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        💎
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        🧤
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
                     👖
-                </button>
-                <button className="inventory-button-clothes-button inventory-button-clothes-button-shoes" onClick={() => fetchNui('exit')}>
-                    👟
-                </button>
+                    </button>
+                </div>
+                <div className='inventory-button-clothes-categorie-col'>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        🦺
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        ⌚
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        🎒
+                    </button>
+                    <button className="inventory-button-clothes-button" onClick={() => fetchNui('exit')}>
+                        👟
+                    </button>
+                </div>
             </div>
         </div>
         </>
