@@ -115,13 +115,20 @@ button:active {
   image-rendering: -webkit-optimize-contrast;
 }
 
+.inventory-global {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap:20px;
+}
+
 .inventory-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
-
   gap: 20px;
 }
 
@@ -130,7 +137,7 @@ button:active {
 
   .inventory-control-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     justify-content: center;
     align-items: center;

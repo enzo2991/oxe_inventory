@@ -17,6 +17,13 @@ const initialState: State = {
     maxWeight: 0,
     items: [],
   },
+  midInventory: {
+    id: '',
+    type: '',
+    slots: 0,
+    maxWeight: 0,
+    items: [],
+  },
   rightInventory: {
     id: '',
     type: '',
@@ -69,6 +76,7 @@ export const inventorySlice = createSlice({
 
       state.history = {
         leftInventory: current(state.leftInventory),
+        midInventory: current(state.midInventory),
         rightInventory: current(state.rightInventory),
       };
     });
@@ -76,8 +84,9 @@ export const inventorySlice = createSlice({
       state.isBusy = false;
     });
     builder.addMatcher(isRejected, (state) => {
-      if (state.history && state.history.leftInventory && state.history.rightInventory) {
+      if (state.history && state.history.leftInventory && state.history.rightInventory && state.history.midInventory) {
         state.leftInventory = state.history.leftInventory;
+        state.midInventory = state.history.midInventory;
         state.rightInventory = state.history.rightInventory;
       }
       state.isBusy = false;
@@ -97,6 +106,7 @@ export const {
   setContainerWeight,
 } = inventorySlice.actions;
 export const selectLeftInventory = (state: RootState) => state.inventory.leftInventory;
+export const selectMidInventory = (state: RootState) => state.inventory.midInventory;
 export const selectRightInventory = (state: RootState) => state.inventory.rightInventory;
 export const selectItemAmount = (state: RootState) => state.inventory.itemAmount;
 export const selectIsBusy = (state: RootState) => state.inventory.isBusy;

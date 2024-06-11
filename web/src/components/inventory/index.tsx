@@ -7,6 +7,7 @@ import { refreshSlots, setAdditionalMetadata, setupInventory } from '../../store
 import { useExitListener } from '../../hooks/useExitListener';
 import type { Inventory as InventoryProps } from '../../typings';
 import RightInventory from './RightInventory';
+import PedInventory from './PedInventory';
 import LeftInventory from './LeftInventory';
 import Tooltip from '../utils/Tooltip';
 import { closeTooltip } from '../../store/tooltip';
@@ -43,10 +44,13 @@ const Inventory: React.FC = () => {
   return (
     <>
       <Fade in={inventoryVisible}>
-        <div className="inventory-wrapper">
-          <LeftInventory />
+        <div className="inventory-global">
+          <div className='inventory-wrapper'>
+            <LeftInventory />
+            <PedInventory />
+            <RightInventory />
+          </div>
           <InventoryControl />
-          <RightInventory />
           <Tooltip />
           <InventoryContext />
         </div>
