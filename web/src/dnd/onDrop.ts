@@ -15,7 +15,7 @@ export const onDrop = (source: DragSource, target?: DropTarget) => {
   const sourceData = Items[sourceSlot.name];
 
   if (sourceData === undefined) return console.error(`${sourceSlot.name} item data undefined!`);
-
+  console.log(targetInventory.type)
   // If dragging from container slot
   if (sourceSlot.metadata?.container !== undefined) {
     // Prevent storing container in container
