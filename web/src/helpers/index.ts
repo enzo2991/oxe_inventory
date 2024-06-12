@@ -97,16 +97,41 @@ export const getTargetInventory = (
   state: State,
   sourceType: Inventory['type'],
   targetType?: Inventory['type']
-): { sourceInventory: Inventory; targetInventory: Inventory } => ({
-  sourceInventory: sourceType === InventoryType.PLAYER ? state.leftInventory : state.rightInventory,
-  targetInventory: targetType
-    ? targetType === InventoryType.PLAYER
-      ? state.leftInventory
-      : state.rightInventory
-    : sourceType === InventoryType.PLAYER
-    ? state.rightInventory
-    : state.leftInventory,
-});
+): { sourceInventory: Inventory; targetInventory: Inventory } => {
+  let sourceInventory: Inventory;
+  let targetInventory: Inventory;
+
+  // Determine sourceInventory
+  if (sourceType === InventoryType.PLAYER) {
+    sourceInventory = state.leftInventory;
+  }  else if(sourceType === InventoryType.CLOTHING){
+    sourceInventory = state.midInventory;
+  } else {
+    sourceInventory = state.rightInventory;
+  }
+
+  // Determine targetInventory
+  if (targetType) {
+    if (targetType === InventoryType.CLOTHING) {
+      targetInventory = state.midInventory;
+    } else if (targetType === InventoryType.PLAYER) {
+      targetInventory = state.leftInventory;
+    } else {
+      targetInventory = state.rightInventory;
+    }
+  } else {
+    if (sourceType === InventoryType.PLAYER) {
+      targetInventory = state.rightInventory;
+    } else {
+      targetInventory = state.leftInventory;
+    }
+  }
+
+  return {
+    sourceInventory,
+    targetInventory,
+  };
+};
 
 export const itemDurability = (metadata: any, curTime: number) => {
   // sorry dunak

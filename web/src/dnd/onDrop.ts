@@ -25,6 +25,11 @@ export const onDrop = (source: DragSource, target?: DropTarget) => {
     // Prevent dragging of container slot when opened
     if (state.rightInventory.id === sourceSlot.metadata.container)
       return console.log(`Cannot move container ${sourceSlot.name} when opened`);
+
+    if (targetInventory.type === InventoryType.CLOTHING){
+      console.log(`Inventory Clothing`);
+      return
+    }
   }
 
   const targetSlot = target

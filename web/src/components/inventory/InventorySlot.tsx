@@ -70,11 +70,8 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             onBuy(source, { inventory: inventoryType, item: { slot: item.slot } });
             break;
           case InventoryType.CRAFTING:
-            console.log(inventoryType)
             onCraft(source, { inventory: inventoryType, item: { slot: item.slot } });
             break;
-            case InventoryType.CLOTHING:
-              break;
           default:
             onDrop(source, { inventory: inventoryType, item: { slot: item.slot } });
             break;
