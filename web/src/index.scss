@@ -262,6 +262,12 @@ button:active {
 
 // Dialog is used fro useful controls window
 
+.midinventory-grid-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: calc($gridGap * 140);
+  align-items:center
+}
 
 // inventory grids
 .inventory-grid-wrapper {
@@ -276,6 +282,15 @@ button:active {
   p {
     font-size: 16px;
   }
+}
+
+.midinventory-grid-container{
+  display: grid;
+  height: $containerSize;
+  grid-auto-rows: $gridSize + 0.22vh;
+  width:$gridSize;
+  gap: $gridGap;
+  overflow-y: scroll;
 }
 
 .inventory-grid-container {
@@ -303,6 +318,17 @@ button:active {
 }
 
 .inventory-slot-label-box {
+  background-color: $mainColor;
+  color: $textColor;
+  text-align: center;
+  border-bottom-left-radius: 0.25vh;
+  border-bottom-right-radius: 0.25vh;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  border-top-style: inset;
+  border-top-width: 1px;
+}
+
+.midinventory-slot-label-box{
   background-color: $mainColor;
   color: $textColor;
   text-align: center;

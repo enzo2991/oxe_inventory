@@ -1,16 +1,17 @@
 import { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 import { getItemData, itemDurability } from '../helpers';
 import { Items } from '../store/items';
-import { Inventory, State } from '../typings';
+import { Inventory, State, Clothing } from '../typings';
 
 export const setupInventoryReducer: CaseReducer<
   State,
   PayloadAction<{
     leftInventory?: Inventory;
+    midInventory?: Clothing;
     rightInventory?: Inventory;
   }>
 > = (state, action) => {
-  const { leftInventory, rightInventory } = action.payload;
+  const { leftInventory, midInventory, rightInventory } = action.payload;
   const curTime = Math.floor(Date.now() / 1000);
 
   if (leftInventory)
@@ -49,6 +50,11 @@ export const setupInventoryReducer: CaseReducer<
         item.durability = itemDurability(item.metadata, curTime);
         return item;
       }),
+    };
+
+    if (midInventory)
+      state.midInventory = {
+        ...midInventory,
     };
 
   state.shiftPressed = false;

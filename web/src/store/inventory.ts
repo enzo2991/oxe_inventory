@@ -20,9 +20,8 @@ const initialState: State = {
   midInventory: {
     id: '',
     type: '',
-    slots: 0,
-    maxWeight: 0,
-    items: [],
+    label: '',
+    item: []
   },
   rightInventory: {
     id: '',

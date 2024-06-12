@@ -7,13 +7,14 @@ import { refreshSlots, setAdditionalMetadata, setupInventory } from '../../store
 import { useExitListener } from '../../hooks/useExitListener';
 import type { Inventory as InventoryProps } from '../../typings';
 import RightInventory from './RightInventory';
-import PedInventory from './PedInventory';
+import MidInventory from './MidInventory';
 import LeftInventory from './LeftInventory';
 import Tooltip from '../utils/Tooltip';
 import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -29,6 +30,7 @@ const Inventory: React.FC = () => {
 
   useNuiEvent<{
     leftInventory?: InventoryProps;
+    midInventory?: InventoryProps;
     rightInventory?: InventoryProps;
   }>('setupInventory', (data) => {
     dispatch(setupInventory(data));
@@ -47,7 +49,7 @@ const Inventory: React.FC = () => {
         <div className="inventory-global">
           <div className='inventory-wrapper'>
             <LeftInventory />
-            <PedInventory />
+            <MidInventory />
             <RightInventory />
           </div>
           <InventoryControl />

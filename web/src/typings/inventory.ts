@@ -1,10 +1,17 @@
-import { Slot } from './slot';
+import { Slot, SlotPed } from './slot';
 
 export enum InventoryType {
   PLAYER = 'player',
   SHOP = 'shop',
   CONTAINER = 'container',
   CRAFTING = 'crafting',
+}
+
+export type Clothing = {
+  id: string;
+  type: string;
+  label?: string;
+  item:SlotPed[];
 }
 
 export type Inventory = {

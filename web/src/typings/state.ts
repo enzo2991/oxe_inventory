@@ -1,9 +1,9 @@
-import { Inventory } from './inventory';
+import { Inventory, Clothing } from './inventory';
 import { Slot } from './slot';
 
 export type State = {
   leftInventory: Inventory;
-  midInventory: Inventory;
+  midInventory: Clothing;
   rightInventory: Inventory;
   itemAmount: number;
   shiftPressed: boolean;
@@ -11,6 +11,7 @@ export type State = {
   additionalMetadata: Array<{ metadata: string; value: string }>;
   history?: {
     leftInventory: Inventory;
+    midInventory: Clothing;
     rightInventory: Inventory;
   };
 };

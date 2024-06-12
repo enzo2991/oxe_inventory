@@ -21,3 +21,16 @@ export type SlotWithItem = Slot & {
   image?: string;
   grade?: number | number[];
 };
+
+export type SlotPed = {
+  slot: number;
+  name?:string;
+  metadata?: {
+    [key: string]: any;
+  };
+}
+
+export type SlotPedWithItem = SlotPed & {
+  name:string;
+  image?: string;
+}

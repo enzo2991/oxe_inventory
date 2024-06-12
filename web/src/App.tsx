@@ -59,6 +59,10 @@ debugData([
           },
         ],
       },
+      MidInventory: {
+        id: 'clothing',
+        type: 'shirt',
+      },
       rightInventory: {
         id: 'shop',
         type: 'crafting',
