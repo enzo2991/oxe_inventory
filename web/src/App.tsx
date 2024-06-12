@@ -59,9 +59,9 @@ debugData([
           },
         ],
       },
-      MidInventory: {
-        id: 'clothing',
-        type: 'shirt',
+      midInventory: {
+        type: 'clothing',
+        items: []
       },
       rightInventory: {
         id: 'shop',
@@ -99,13 +99,14 @@ const App: React.FC = () => {
     locale: { [key: string]: string };
     items: typeof Items;
     leftInventory: Inventory;
+    midInventory: Inventory;
     imagepath: string;
-  }>('init', ({ locale, items, leftInventory, imagepath }) => {
+  }>('init', ({ locale, items, leftInventory, midInventory, imagepath }) => {
     for (const name in locale) Locale[name] = locale[name];
     for (const name in items) Items[name] = items[name];
 
     setImagePath(imagepath);
-    dispatch(setupInventory({ leftInventory }));
+    dispatch(setupInventory({ leftInventory, midInventory }));
   });
 
   fetchNui('uiLoaded', {});

@@ -1,84 +1,43 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useAppSelector } from '../../store';
-import { Clothing } from '../../typings';
-import { useIntersection } from '../../hooks/useIntersection';
+import { Inventory } from '../../typings'
+import InventorySlot from './InventorySlot';
 
-interface SlotProps {
-    inventoryId: Clothing['id'];
-    inventoryType: Clothing['type'];
-    items?: Clothing['label']
-  }
-
-const InventorySlotPed: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> = () => {
-    return (
-    <>
-    </>
-    )
-}
-
-const InventoryPed: React.FC<{ inventory: Clothing }> = ({ inventory }) => {
+const InventoryPed: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
     const isBusy = useAppSelector((state) => state.inventory.isBusy);
+    const ref = useRef<HTMLDivElement>(null);
     console.log(inventory)
     return (
     <>
-    <div className="midinventory-grid-wrapper" style={{ pointerEvents: isBusy ? 'none' : 'auto' }}>
-        <div>
-            <div className='midinventory-grid-container'>
-            <div className='inventory-slot'>
-                    <div className='item-slot-wrapper'>
-                        <div className='item-slot-header-wrapper'>
-                            <div className='item-slot-info-wrapper'>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div className="inventory-slot-label-box">
-                            <p className='inventory-slot-label-text'>
-                                Test
-                            </p>
-                        </div>
-                    </div>
+        <div className="midinventory-grid-wrapper" style={{ pointerEvents: isBusy ? 'none' : 'auto' }}>
+            <div>
+                <div className='midinventory-grid-container'>
+                    {inventory.items.slice(0,6).map((item, index) => (
+                        <InventorySlot
+                            key={`${inventory.type}-${inventory.id}-${item.slot}`}
+                            ref={index === 7 ? ref : null}
+                            item={item}
+                            inventoryId={inventory.id}
+                            inventoryType={inventory.type}
+                            inventoryGroups={inventory.groups}
+                        />
+                    ))}
                 </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
+            </div>
+            <div>
+                <div className='midinventory-grid-container'>
+                    {inventory.items.map((slot) => (
+                        <InventorySlot
+                            key={slot.slot}
+                            item={slot}
+                            inventoryId={inventory.id}
+                            inventoryType={inventory.type}
+                            inventoryGroups={inventory.groups}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
-        <div>
-        <div className='midinventory-grid-container'>
-        <div className='inventory-slot'>
-                    <div className='item-slot-wrapper'>
-                        <div className='item-slot-header-wrapper'>
-                            <div className='item-slot-info-wrapper'>
-                                <p>100g</p>
-                            </div>
-                        </div>
-                        <div className="inventory-slot-label-box">
-                            <p className='inventory-slot-label-text'>
-                                Test
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-                <div className='inventory-slot'>
-                </div>
-            </div>
-        </div>
-    </div>
     </>
     )
 }

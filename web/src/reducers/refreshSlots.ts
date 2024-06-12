@@ -75,6 +75,8 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
       inventoryId === state.leftInventory.id
         ? 'leftInventory'
         : inventoryId === state.rightInventory.id
+        ? 'midInventory'
+        : inventoryId === state.midInventory.id
         ? 'rightInventory'
         : null;
 
@@ -85,6 +87,7 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
       type: 'setupInventory',
       payload: {
         leftInventory: inv === 'leftInventory' ? state[inv] : undefined,
+        midInventory: inv === 'midInventory' ? state[inv] : undefined,
         rightInventory: inv === 'rightInventory' ? state[inv] : undefined,
       },
     });
