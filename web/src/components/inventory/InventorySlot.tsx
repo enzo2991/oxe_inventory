@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../store';
 import WeightBar from '../utils/WeightBar';
 import { onDrop } from '../../dnd/onDrop';
 import { onBuy } from '../../dnd/onBuy';
+import { onClothing } from '../../dnd/onClothing';
 import { Items } from '../../store/items';
 import { canCraftItem, canPurchaseItem, getItemUrl, isSlotWithItem } from '../../helpers';
 import { onUse } from '../../dnd/onUse';
@@ -73,7 +74,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             onCraft(source, { inventory: inventoryType, item: { slot: item.slot } });
             break;
           case InventoryType.CLOTHING:
-            // onClothing(source, { inventory: inventoryType, item: { slot: item.slot } });
+            onClothing(source, { inventory: inventoryType, item: { slot: item.slot } });
             console.log("retirer les vetements")
             break;
           default:
