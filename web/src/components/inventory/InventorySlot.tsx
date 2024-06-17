@@ -75,7 +75,6 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             break;
           case InventoryType.CLOTHING:
             onClothing(source, { inventory: inventoryType, item: { slot: item.slot } });
-            console.log("retirer les vetements")
             break;
           default:
             onDrop(source, { inventory: inventoryType, item: { slot: item.slot } });
