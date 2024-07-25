@@ -40,6 +40,9 @@ const InventoryControl: React.FC = () => {
       <UsefulControls infoVisible={infoVisible} setInfoVisible={setInfoVisible} />
       <div className="inventory-control">
         <div className="inventory-control-wrapper">
+          <button className="inventory-control-button" ref={use}>
+            {Locale.ui_use || 'Use'}
+          </button>
           <button className="inventory-control-button" ref={give}>
             {Locale.ui_give || 'Give'}
           </button>
