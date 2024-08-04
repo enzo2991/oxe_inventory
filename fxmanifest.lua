@@ -28,13 +28,14 @@ server_scripts {
     'init.lua'
 }
 
-client_script 'init.lua'
+client_scripts {'init.lua','clothing.lua'}
 
 ui_page 'web/build/index.html'
 
 files {
     'client.lua',
     'server.lua',
+    'clothing.lua',
     'locales/*.json',
     'web/build/index.html',
     'web/build/assets/*.js',

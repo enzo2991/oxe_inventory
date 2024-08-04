@@ -259,4 +259,5 @@ function SelectClothing(data)
             PreviousTexture[item] = nil
         end
     end
+    RefreshPedScreen()
 end
